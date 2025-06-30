@@ -1,0 +1,52 @@
+class Test {
+    static void getElements(int[] arr, int n) {
+        if (n < 2) {
+            System.out.println(-1);
+            System.out.println(-1);
+            return;
+        }
+
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            // For smallest and second smallest
+            if (arr[i] < smallest) {
+                secondSmallest = smallest;
+                smallest = arr[i];
+            } else if (arr[i] < secondSmallest && arr[i] != smallest) {
+                secondSmallest = arr[i];
+            }
+
+            // For largest and second largest
+            if (arr[i] > largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            } else if (arr[i] > secondLargest && arr[i] != largest) {
+                secondLargest = arr[i];
+            }
+        }
+
+        // Print second smallest
+        if (secondSmallest == Integer.MAX_VALUE) {
+            System.out.println("No second smallest found");
+        } else {
+            System.out.println("Second smallest is " + secondSmallest);
+        }
+
+        // Print second largest
+        if (secondLargest == Integer.MIN_VALUE) {
+            System.out.println("No second largest found");
+        } else {
+            System.out.println("Second largest is " + secondLargest);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 6, 7, 5};
+        int n = arr.length;
+        getElements(arr, n);
+    }
+}
