@@ -1,0 +1,25 @@
+Creating An Array using User Input
+
+import java.util.*;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); // create Scanner object
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();  // user inputs size of array
+        int[] arr = new int[n];  // create array of size n
+        System.out.println("Enter " + n + " elements:");
+
+        // take input using loop
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        // print array elements
+        System.out.println("You entered:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        sc.close();
+    }
+}
+
